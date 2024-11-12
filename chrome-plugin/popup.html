@@ -1,86 +1,114 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>URL Forwarder</title>
     <style>
-        body {
-            background-color: black;
-            padding: 0;
-            margin: 0;
-            color: white;
-        }
+      body {
+        background-color: black;
+        margin: 0;
+        color: white;
+      }
 
-        .welcome-container {
-            width: 256px;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-            padding: 2rem 0.75rem;
-            background: linear-gradient(to bottom, #7DFA86 -10%, #5950EC21 10%, transparent 10%);
-            /* border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem; */
-            animation: slide-down 0.3s ease-out;
-        }
+      .welcome-container {
+        width: 256px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 2rem 0.75rem;
+        background: linear-gradient(
+          to bottom,
+          #7dfa86 -10%,
+          #5950ec21 10%,
+          transparent 10%
+        );
+      }
 
-        .welcome-text {
-            width: 83.333333%;
-            font-size: 1rem;
-            font-weight: 600;
-            line-height: 1.2rem;
-            text-align: center;
-        }
+      .welcome-text {
+        width: 90%;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+        color: #f6f5e8;
+      }
 
-        .submit-button {
-            background: none;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            color: white;
-            font-size: 1rem;
-        }
+      .submit-button {
+        background: none;
+        border: 1px solid #f6f5e8;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        color: white;
+        font-size: 1rem;
+      }
 
-        .submit-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+      .submit-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
 
-        .submit-button svg {
-            height: 1.5rem;
-            width: 1.5rem;
-            display: block;
-            color: #f6f5e8;
-        }
+      .submit-button svg {
+        height: 1rem;
+        width: 1rem;
+        color: #f6f5e8;
+      }
 
-        .submit-button:hover svg {
-            animation: spin 1s ease-in-out;
-        }
-
-        .error-message {
-            font-size: 0.875rem;
-            color: #ef4444;
-        }
+      .error-message {
+        font-size: 0.875rem;
+        color: #ef4444;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="welcome-container">
-        <div class="welcome-text">
-            We take any news article and enrich it with scientific insights from
-            the latest research papers.
-        </div>
+      <div class="welcome-text">
+        Enrich news articles with insights from the latest research papers.
+      </div>
 
-        <button type="button" id="forwardButton" class="submit-button">
-            Annotate this page <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style="display: inline-block; vertical-align: middle; margin-left: 4px;">
-                <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-        </button>
+      <button
+        type="button"
+        tabindex="-1"
+        id="forwardButton"
+        class="submit-button"
+      >
+        Enrich this page
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style="
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 4px;
+          "
+        >
+          <path
+            d="M1 8H15M15 8L8 1M15 8L8 15"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <input
+          type="checkbox"
+          id="openTabInBackground"
+          checked
+          style="accent-color: #7dfa85"
+        />
+        <label
+          for="openTabInBackground"
+          style="font-size: 0.875rem; color: #6b7280"
+        >
+          Open tab in background
+        </label>
+      </div>
     </div>
     <script src="popup.js"></script>
-</body>
-
+  </body>
 </html>
